@@ -3,90 +3,290 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>毛建炟的个人网站</title>
+    <title>毛建炟 | 科研主页</title>
     <style>
       :root {
-        color-scheme: light dark;
+        --bg: #f4f5f7;
+        --surface: #ffffff;
+        --text: #1f2933;
+        --muted: #5c6773;
+        --border: #d6dde6;
+        --accent: #1f4d6b;
+        --accent-soft: #edf2f6;
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.7;
-        background: linear-gradient(120deg, #f6f9fc, #eef5ff);
-        color: #1f2937;
+        font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Times New Roman", serif;
+        line-height: 1.75;
+        background: var(--bg);
+        color: var(--text);
       }
+
       .container {
-        max-width: 760px;
+        max-width: 980px;
         margin: 0 auto;
-        padding: 3rem 1.25rem 4rem;
+        padding: 2.5rem 1.25rem 4rem;
       }
-      .card {
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 1.5rem;
       }
-      h1,
+
+      .sidebar,
+      .content {
+        background: var(--surface);
+        border: 1px solid var(--border);
+      }
+
+      .sidebar {
+        padding: 1.4rem;
+        align-self: start;
+        position: sticky;
+        top: 1rem;
+      }
+
+      .name {
+        margin: 0;
+        font-size: 1.75rem;
+        line-height: 1.25;
+      }
+
+      .subtitle {
+        margin: 0.4rem 0 1.1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .avatar {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border: 1px solid var(--border);
+        margin-bottom: 1rem;
+        background: linear-gradient(160deg, #e9edf1, #dde4eb);
+        display: grid;
+        place-items: center;
+        color: #6d7884;
+        font-size: 0.95rem;
+      }
+
+      .meta {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.95rem;
+      }
+
+      .meta li {
+        margin-bottom: 0.45rem;
+        color: var(--muted);
+      }
+
+      .meta strong {
+        color: var(--text);
+      }
+
+      .content {
+        padding: 0;
+      }
+
+      .section {
+        padding: 1.6rem 1.6rem 1.35rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .section:first-child {
+        border-top: none;
+      }
+
       h2 {
         margin-top: 0;
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        color: var(--accent);
+        letter-spacing: 0.02em;
       }
-      .tag {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 999px;
-        background: #dbeafe;
-        color: #1d4ed8;
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
+
+      p {
+        margin: 0 0 0.8rem;
       }
+
       ul {
-        padding-left: 1.2rem;
+        margin: 0;
+        padding-left: 1.15rem;
       }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      .news li,
+      .service li,
+      .teaching li {
+        color: var(--muted);
+      }
+
+      .pub-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .pub-list li {
+        margin-bottom: 1rem;
+        padding: 0.9rem;
+        border: 1px solid var(--border);
+        background: var(--accent-soft);
+      }
+
+      .pub-title {
+        font-weight: 600;
+      }
+
+      .pub-meta {
+        display: block;
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-top: 0.2rem;
+      }
+
       a {
-        color: #2563eb;
+        color: var(--accent);
         text-decoration: none;
+        border-bottom: 1px solid rgba(31, 77, 107, 0.35);
       }
+
       a:hover {
-        text-decoration: underline;
+        border-bottom-color: var(--accent);
       }
+
       footer {
-        margin-top: 2rem;
-        font-size: 0.95rem;
-        color: #4b5563;
+        padding: 1.2rem 1.6rem 1.4rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.9rem;
       }
-      @media (max-width: 520px) {
-        .card {
-          padding: 1.5rem;
+
+      .small-note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          padding: 1.1rem 0.75rem 2rem;
+        }
+
+        .section,
+        footer,
+        .sidebar {
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
       }
     </style>
   </head>
   <body>
-    <main class="container">
-      <section class="card">
-        <span class="tag">个人网站</span>
-        <h1>你好，我是毛建炟 👋</h1>
-        <p>欢迎来到我的个人主页，这里会记录我的学习、项目和想法。</p>
+    <div class="container">
+      <main class="layout">
+        <aside class="sidebar">
+          <div class="avatar" aria-label="头像占位图">Portrait Placeholder</div>
+          <h1 class="name">毛建炟</h1>
+          <p class="subtitle">硕士研究生 | 计算机科学与技术</p>
 
-        <h2>关于我</h2>
-        <p>我喜欢编程和技术分享，正在持续学习前端、后端与 AI 相关知识。</p>
+          <ul class="meta">
+            <li><strong>研究方向：</strong>机器学习、自然语言处理、数据挖掘</li>
+            <li><strong>单位：</strong>示例大学计算机学院</li>
+            <li><strong>地点：</strong>中国</li>
+            <li><strong>Email：</strong><a href="mailto:jiandamao@gmail.com">jiandamao@gmail.com</a></li>
+            <li><strong>Google Scholar：</strong><a href="#">Scholar Link</a></li>
+          </ul>
+        </aside>
 
-        <h2>最近在做</h2>
-        <ul>
-          <li>搭建个人网站并持续更新内容</li>
-          <li>整理个人项目与技术笔记</li>
-          <li>学习更好的工程化实践</li>
-        </ul>
+        <article class="content">
+          <section class="section">
+            <h2>个人简介</h2>
+            <p>
+              我目前关注面向实际应用场景的智能算法研究，重点探索模型泛化能力、可解释性与效率优化。
+              本页面用于展示我的研究进展、论文成果与学术服务工作。
+            </p>
+            <p class="small-note">提示：将页面中的占位信息替换为你的真实单位、论文和项目链接即可直接使用。</p>
+          </section>
 
-        <h2>联系方式</h2>
-        <p>
-          你可以通过
-          <a href="jiandamao@gmail.com">jiandamao@gmail.com</a>
-          联系我。
-        </p>
+          <section class="section">
+            <h2>研究方向</h2>
+            <ul>
+              <li>大语言模型在专业领域场景中的适配与评估</li>
+              <li>面向小样本任务的鲁棒学习方法</li>
+              <li>跨模态信息融合与知识增强</li>
+            </ul>
+          </section>
 
-        <footer>© 2026 毛建炟. All rights reserved.</footer>
-      </section>
-    </main>
+          <section class="section">
+            <h2>代表论文</h2>
+            <ul class="pub-list">
+              <li>
+                <span class="pub-title">Author, Author, <strong>Jianmao Mao</strong>. Title of the Paper.</span>
+                <span class="pub-meta">Conference/Journal, 2026 | <a href="#">PDF</a> | <a href="#">Code</a></span>
+              </li>
+              <li>
+                <span class="pub-title">Author, <strong>Jianmao Mao</strong>. Another Research Work Title.</span>
+                <span class="pub-meta">Conference/Journal, 2025 | <a href="#">PDF</a> | <a href="#">Project</a></span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>科研项目</h2>
+            <ul>
+              <li>项目 A：面向真实业务场景的文本智能分析平台（负责人）</li>
+              <li>项目 B：多源数据驱动的知识抽取与图谱构建（核心成员）</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>学术服务</h2>
+            <ul class="service">
+              <li>审稿人：AAAI, ACL Rolling Review（示例）</li>
+              <li>志愿者：某国际学术会议组织工作（示例）</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>新闻动态</h2>
+            <ul class="news">
+              <li>[2026.07] 一篇论文被某国际会议接收（示例）。</li>
+              <li>[2026.05] 项目演示系统上线并开放测试（示例）。</li>
+              <li>[2026.03] 在实验室学术报告中汇报最新研究进展（示例）。</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>教学与指导</h2>
+            <ul class="teaching">
+              <li>课程助教：机器学习导论（2025 秋）</li>
+              <li>本科生科研指导：2 名（示例）</li>
+            </ul>
+          </section>
+
+          <footer>© 2026 Jianmao Mao. Last updated: 2026-07-29</footer>
+        </article>
+      </main>
+    </div>
   </body>
 </html>
