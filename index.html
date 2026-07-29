@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>毛建炟 | 科研主页</title>
+    <title>毛建炟 | 个人主页</title>
     <style>
       :root {
         --bg: #f4f5f7;
@@ -69,11 +69,8 @@
         aspect-ratio: 4 / 5;
         border: 1px solid var(--border);
         margin-bottom: 1rem;
-        background: linear-gradient(160deg, #e9edf1, #dde4eb);
-        display: grid;
-        place-items: center;
-        color: #6d7884;
-        font-size: 0.95rem;
+        object-fit: cover;
+        display: block;
       }
 
       .meta {
@@ -90,6 +87,23 @@
 
       .meta strong {
         color: var(--text);
+      }
+
+      .meta a {
+        word-break: break-all;
+      }
+
+      .nav {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.6rem;
+      }
+
+      .nav a {
+        font-size: 0.9rem;
       }
 
       .content {
@@ -177,6 +191,21 @@
         font-size: 0.92rem;
       }
 
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.8rem;
+      }
+
+      .tag {
+        font-size: 0.86rem;
+        color: var(--accent);
+        border: 1px solid var(--border);
+        background: var(--accent-soft);
+        padding: 0.08rem 0.5rem;
+      }
+
       @media (max-width: 900px) {
         .layout {
           grid-template-columns: 1fr;
@@ -205,86 +234,120 @@
     <div class="container">
       <main class="layout">
         <aside class="sidebar">
-          <div class="avatar" aria-label="头像占位图">Portrait Placeholder</div>
+          <img class="avatar" src="images/profile.png" alt="毛建炟头像" />
           <h1 class="name">毛建炟</h1>
-          <p class="subtitle">硕士研究生 | 计算机科学与技术</p>
+          <p class="subtitle">东北u林业大学经济统计本科｜湖南大学统计学学硕</p>
 
           <ul class="meta">
-            <li><strong>研究方向：</strong>机器学习、自然语言处理、数据挖掘</li>
-            <li><strong>单位：</strong>示例大学计算机学院</li>
-            <li><strong>地点：</strong>中国</li>
+            <li><strong>本科：</strong>东北林业大学 经济统计学</li>
+            <li><strong>硕士：</strong>湖南大学 统计学</li>
+            <li><strong>方向：</strong>数据挖掘、数据分析、计量经济学、空间数据分析</li>
             <li><strong>Email：</strong><a href="mailto:jiandamao@gmail.com">jiandamao@gmail.com</a></li>
-            <li><strong>Google Scholar：</strong><a href="#">Scholar Link</a></li>
+            <li><strong>电话：</strong>+86 18470339694</li>
           </ul>
+
+          <nav class="nav" aria-label="页面导航">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#cv">CV</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </aside>
 
         <article class="content">
-          <section class="section">
-            <h2>个人简介</h2>
+          <section class="section" id="home">
+            <h2>Home｜首页</h2>
             <p>
-              我目前关注面向实际应用场景的智能算法研究，重点探索模型泛化能力、可解释性与效率优化。
-              本页面用于展示我的研究进展、论文成果与学术服务工作。
+              你好，我是毛建炟，本科系东北林业大学经济统计学，现为湖南大学统计学硕士研究生。
             </p>
-            <p class="small-note">提示：将页面中的占位信息替换为你的真实单位、论文和项目链接即可直接使用。</p>
+            <p>
+              我关注 pytorch、data analysis 与 spatial analysis，正在持续学习统计建模、
+              计量经济学与空间分析方法，并尝试将其应用到城市与社会经济问题中。
+            </p>
+            <div class="tags" aria-label="方向标签">
+              <span class="tag">统计学</span>
+              <span class="tag">数据分析</span>
+              <span class="tag">计量经济学</span>
+              <span class="tag">空间数据分析</span>
+              <span class="tag">GWR</span>
+              <span class="tag">PCA</span>
+              <span class="tag">Python数据分析</span>
+              <span class="tag">ArcGIS空间分析</span>
+              <span class="tag">机器学习入门</span>
+            </div>
           </section>
 
-          <section class="section">
-            <h2>研究方向</h2>
+          <section class="section" id="about">
+            <h2>About｜关于我</h2>
+            <p>
+              我希望以理性、可解释的方法理解现实问题。学习过程中，我重视“问题—方法—解释”的完整链条：
+              先明确研究问题，再选择合适模型，最后回到数据语境解释结果。
+            </p>
+            <p>
+              除课程学习外，我曾担任东北林业大学大学生资助发展中心副部长，参与活动组织、需求调研与资源分配支持，
+              也由此进一步理解了数据分析在实际管理中的价值。
+            </p>
+          </section>
+
+          <section class="section" id="projects">
+            <h2>Projects｜项目</h2>
             <ul>
-              <li>大语言模型在专业领域场景中的适配与评估</li>
-              <li>面向小样本任务的鲁棒学习方法</li>
-              <li>跨模态信息融合与知识增强</li>
-            </ul>
-          </section>
-
-          <section class="section">
-            <h2>代表论文</h2>
-            <ul class="pub-list">
               <li>
-                <span class="pub-title">Author, Author, <strong>Jianmao Mao</strong>. Title of the Paper.</span>
-                <span class="pub-meta">Conference/Journal, 2026 | <a href="#">PDF</a> | <a href="#">Code</a></span>
+                <strong>基于 GWR 与 PCA 的城市房产价值归因分析与预测（2024.08–2024.11）</strong><br />
+                构建宏观空间格局与微观品质结合的多维指标数据集，使用 PCA 降维，并结合 VIF 进行多重共线性诊断。
               </li>
               <li>
-                <span class="pub-title">Author, <strong>Jianmao Mao</strong>. Another Research Work Title.</span>
-                <span class="pub-meta">Conference/Journal, 2025 | <a href="#">PDF</a> | <a href="#">Project</a></span>
+                计算 Global Moran&apos;s I 检验房价数据的空间自相关特征，建立 OLS 基准模型与 GWR 模型，
+                对比空间非平稳性下的拟合效果。
+              </li>
+              <li>
+                使用 Python Matplotlib 完成空间热力图可视化，量化不同特征对资产价值的贡献差异。
               </li>
             </ul>
           </section>
 
-          <section class="section">
-            <h2>科研项目</h2>
+          <section class="section" id="cv">
+            <h2>CV / Resume｜简历</h2>
             <ul>
-              <li>项目 A：面向真实业务场景的文本智能分析平台（负责人）</li>
-              <li>项目 B：多源数据驱动的知识抽取与图谱构建（核心成员）</li>
+              <li>
+                <strong>教育背景</strong><br />
+                东北林业大学 经济统计学<br />
+                湖南大学 统计学
+              </li>
+              <li>
+                <strong>校园与组织经历</strong><br />
+                东北林业大学大学生资助发展中心 副部长（2023.10–2024.06）<br />
+                负责资助政策宣传活动组织与策划，开展资助对象需求调研，并用数据分析支持方案优化与资源分配。
+              </li>
+              <li>
+                <strong>主修课程</strong><br />
+                计量经济学、多元统计分析、时间序列分析、概率论与数理统计、微观经济学、Python语言程序设计、
+                数据挖掘技术、结构方程模型、机器学习及其应用、R语言
+              </li>
+              <li>
+                <strong>技能与工具</strong><br />
+                Pandas、NumPy、Matplotlib、SQL、OLS/GWR/Logistic 回归、PCA、假设检验、时间序列分析<br />
+                ArcGIS（空间数据分析与可视化），了解 Tableau 与 Power BI
+              </li>
+              <li><strong>英语</strong>：CET-6 518</li>
+              <li><strong>荣誉</strong>：东北林业大学“优秀学生干部”、多次校级优秀学生奖学金</li>
             </ul>
           </section>
 
-          <section class="section">
-            <h2>学术服务</h2>
-            <ul class="service">
-              <li>审稿人：AAAI, ACL Rolling Review（示例）</li>
-              <li>志愿者：某国际学术会议组织工作（示例）</li>
+          <section class="section" id="contact">
+            <h2>Contact｜联系我</h2>
+            <p>
+              欢迎就统计学习、数据分析、空间建模与实证研究方法进行交流。若你对我的项目有建议，也欢迎来信沟通。
+            </p>
+            <ul>
+              <li><strong>Email：</strong><a href="mailto:jiandamao@gmail.com">jiandamao@gmail.com</a></li>
+              <li><strong>电话：</strong>+86 18470339694</li>
             </ul>
+            <p class="small-note">注：未来研究计划将围绕统计学、数据分析与空间建模方向持续展开。</p>
           </section>
 
-          <section class="section">
-            <h2>新闻动态</h2>
-            <ul class="news">
-              <li>[2026.07] 一篇论文被某国际会议接收（示例）。</li>
-              <li>[2026.05] 项目演示系统上线并开放测试（示例）。</li>
-              <li>[2026.03] 在实验室学术报告中汇报最新研究进展（示例）。</li>
-            </ul>
-          </section>
-
-          <section class="section">
-            <h2>教学与指导</h2>
-            <ul class="teaching">
-              <li>课程助教：机器学习导论（2025 秋）</li>
-              <li>本科生科研指导：2 名（示例）</li>
-            </ul>
-          </section>
-
-          <footer>© 2026 Jianmao Mao. Last updated: 2026-07-29</footer>
+          <footer>© 2026 毛建炟. Last updated: 2026-07-29</footer>
         </article>
       </main>
     </div>
